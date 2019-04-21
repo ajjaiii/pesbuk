@@ -44,7 +44,8 @@
             <?php for($i=0; $i < 6; $i++){ ?>
             <div class="card mb-3">
                 <div class="card-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis veritatis nemo ad recusandae labore nihil iure qui eum consequatur, officiis facere quis sunt tempora impedit ullam reprehenderit facilis ex amet!
+                Selamat datang !
+                Selamat bergabung dengan kami ..
                 </div>
             </div>
             <?php } ?>
