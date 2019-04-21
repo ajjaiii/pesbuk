@@ -1,9 +1,9 @@
 <?php
 
-$db_host = "localhost";
-$db_user = "devopscilsy";
-$db_pass = "1234567890";
-$db_name = "dbsosmed";
+$db_host = "ahmad-db.cmeypdk92ow4.us-west-2.rds.amazonaws.com";
+$db_user = "root";
+$db_pass = "natupala1234";
+$db_name = "dbfacebook";
 
 try {    
     //create PDO connection 
