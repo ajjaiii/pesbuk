@@ -7,7 +7,7 @@
       "memory": 128,
       "portMappings": [
         {
-          "containerPort": 80
+          "containerPort": 0
         }
       ],
       "dockerLabels" : {
