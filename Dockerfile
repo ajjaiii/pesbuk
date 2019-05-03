@@ -1,5 +1,5 @@
 FROM ajjaiii/php-mysql
-RUN rm -Rf .
+RUN cd /var/www/html/ && rm -Rf *
 COPY . /var/www/html/
 RUN apt update
 EXPOSE 80
