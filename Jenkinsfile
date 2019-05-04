@@ -4,14 +4,14 @@ node ('master'){
 //	try {
 		stage 'Preparation'
 			git branch: 'master',
-            credentialsId: 'gitlab_devstack',
-            url: 'https://gitlab.com/devstack-o/rapid-rainbow/email-service.git'
+            credentialsId: 'ajjaiii',
+            url: 'https://github.com/ajjaiii/pesbuk.git'
 			echo 'file checked out'
 		stage 'Build'
-			node ('dotnet22medium'){
+			node ('master'){
 				git branch: 'master',
-                credentialsId: 'gitlab_devstack',
-                url: 'https://gitlab.com/devstack-o/rapid-rainbow/email-service.git'
+                credentialsId: 'ajjaiii',
+                url: 'https://github.com/ajjaiii/pesbuk.git'
 				print "Running on : ${env.NODE_NAME}"
 				docker.image('mcr.microsoft.com/dotnet/core/sdk:2.2').inside('-u 0') {
 					sh '''
