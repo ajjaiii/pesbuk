@@ -4,7 +4,7 @@ node ('master'){
 //	try {
 		stage 'Preparation'
 			git branch: 'master',
-            credentialsId: 'ajjaiii',
+            credentialsId: 'github',
             url: 'https://github.com/ajjaiii/pesbuk.git'
 			echo 'file checked out'
 		stage 'Build'
