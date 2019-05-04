@@ -10,7 +10,7 @@ node ('master'){
 		stage 'Build'
 			node ('master'){
 				git branch: 'master',
-                credentialsId: 'ajjaiii',
+                credentialsId: 'github',
                 url: 'https://github.com/ajjaiii/pesbuk.git'
 				print "Running on : ${env.NODE_NAME}"
 				docker.image('mcr.microsoft.com/dotnet/core/sdk:2.2').inside('-u 0') {
