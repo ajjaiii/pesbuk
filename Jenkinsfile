@@ -1,5 +1,5 @@
 #!groovy
-node ('dotnet22medium'){
+node ('master'){
 	currentBuild.result = "SUCCESS"
 //	try {
 		stage 'Preparation'
