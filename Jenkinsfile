@@ -13,11 +13,6 @@ node ('master'){
                 url: 'https://github.com/ajjaiii/pesbuk.git'
 				print "Running on : ${env.NODE_NAME}"
 
-				sh '''
-				    git clone https://github.com/ajjaiii/pesbuk.git
-
-				'''
-	
 				echo 'Building Image'
 				sh '''
 					cd pesbuk
