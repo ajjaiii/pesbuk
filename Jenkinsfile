@@ -27,5 +27,7 @@ node ('master'){
 			echo 'Deploying pesbuk aplication'
 			sh '''
 			      docker run -d -p 80:80 --name pesbuk ajjaiii/php-mysql:$BUILD_NUMBER
+			      docker rm -f pesbuk
+			      docker image prune -fa
 			'''
 }
