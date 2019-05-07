@@ -26,8 +26,8 @@ node ('master'){
 			print "branch : ${env.BRANCH_NAME}"
 			echo 'Deploying pesbuk aplication'
 			sh '''
-			      docker run -d -p 80:80 --name pesbuk ajjaiii/php-mysql:$BUILD_NUMBER
 			      docker rm -f pesbuk
+			      docker run -d -p 80:80 --name pesbuk ajjaiii/php-mysql:$BUILD_NUMBER
 			      docker image prune -fa
 			'''
 }
