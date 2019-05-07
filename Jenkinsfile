@@ -15,7 +15,6 @@ node ('master'){
 
 				echo 'Building Image'
 				sh '''
-					cd pesbuk
 					docker build -t pesbuk .
 					docker tag pesbuk ajjaiii/php-mysql:$BUILD_NUMBER
 					docker push ajjaiii/php-mysql:$BUILD_NUMBER
