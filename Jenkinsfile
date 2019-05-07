@@ -22,10 +22,10 @@ node ('master'){
 				
 			}
 		stage 'Deploy'
-			echo 'Pushed to repo'
+			echo 'Running Container'
 			print "branch : ${env.BRANCH_NAME}"
-			echo 'Deploying to Demo site'
-			sshagent (credentials: ['ssh-server-key']) {
-				sh "ssh -o StrictHostKeyChecking=no -l ubuntu 172.31.4.140 \"docker rm -f rr-scheduler-demo && docker run -d --add-host linux-demolive:172.31.4.140 --add-host db-demolive:172.31.4.245 --name rr-scheduler-demo -p 5900:80 -e ASPNETCORE_ENVIRONMENT=Demo --hostname rr-scheduler --restart always registry.gitlab.com/devstack-o/rapid-rainbow/email-service:1.0.0.hotfix140\""
-			}
+			echo 'Deploying pesbuk aplication'
+			sh '''
+			      docker run -d -p 80:80 --name pesbuk ajjaiii/php-mysql:$BUILD_NUMBER
+			'''
 }
