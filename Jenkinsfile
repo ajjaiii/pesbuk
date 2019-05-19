@@ -18,18 +18,16 @@ node ('agen1'){
 				sh 'docker tag pesbuk ajjaiii/pesbuk:$BUILD_NUMBER'
 				sh 'docker login'
 				sh 'docker push ajjaiii/pesbuk:$BUILD_NUMBER'
-				
+				echo 'new image has build'
 			}
-		stage 'Cleaning'
-			echo 'Cleaning image'
-			print "branch : ${env.BRANCH_NAME}"
-			sh 'docker image prune -fa'
-			echo 'image cleaned'
-
 		stage 'Deploy'
 			echo 'Deploying Aplication'
-			print "branch : ${env.BRANCH_NAME}"
 			sh 'sed -i "s/BUILD_NUMBER/$BUILD_NUMBER/g" deployment.yaml'
 			sh 'kubectl apply -f deployment.yaml'
 			echo 'Pesbuk aplication has deployed'
+
+		stage 'Cleaning'
+			echo 'Cleaning images'
+			sh 'docker image prune -fa'
+			echo 'images cleaned'
 }
