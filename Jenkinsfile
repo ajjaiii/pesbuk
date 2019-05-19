@@ -1,33 +1,35 @@
 #!groovy
-node ('master'){
+node ('agen1'){
 	currentBuild.result = "SUCCESS"
 		stage 'Github checking'
-			git branch: 'master',
+			git branch: 'staging',
             credentialsId: 'github',
             url: 'https://github.com/ajjaiii/pesbuk.git'
 			echo 'file checked out'
 		stage 'Build'
-			node ('master'){
-				git branch: 'master',
+			node ('agen1'){
+				git branch: 'staging',
                 credentialsId: 'github',
                 url: 'https://github.com/ajjaiii/pesbuk.git'
 				print "Running on : ${env.NODE_NAME}"
 
 				echo 'Building Image'
-				sh '''
-					docker build -t pesbuk .
-					docker tag pesbuk ajjaiii/php-mysql:$BUILD_NUMBER
-					docker push ajjaiii/php-mysql:$BUILD_NUMBER
-				'''
+				sh 'docker build . -t pesbuk'
+				sh 'docker tag pesbuk ajjaiii/pesbuk:$BUILD_NUMBER'
+				sh 'docker login'
+				sh 'docker push ajjaiii/pesbuk:$BUILD_NUMBER'
 				
 			}
-		stage 'Deploy'
-			echo 'Running Container'
+		stage 'Cleaning'
+			echo 'Cleaning image'
 			print "branch : ${env.BRANCH_NAME}"
-			echo 'Deploying pesbuk aplication'
-			sh '''
-			      docker rm -f pesbuk
-			      docker run -d -p 80:80 --name pesbuk ajjaiii/php-mysql:$BUILD_NUMBER
-			      docker image prune -fa
-			'''
+			sh 'docker image prune -fa'
+			echo 'image cleaned'
+
+		stage 'Deploy'
+			echo 'Deploying Aplication'
+			print "branch : ${env.BRANCH_NAME}"
+			sh 'sed -i "s/BUILD_NUMBER/$BUILD_NUMBER/g" deployment.yaml'
+			sh 'kubectl apply -f deployment.yaml'
+			echo 'Pesbuk aplication has deployed'
 }
