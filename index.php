@@ -14,7 +14,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <h1>Selamat datang Sosmed cilsy</h1>
+                        <h1>Selamat datang edit dari jenkins agen1</h1>
                         <p>Bergabunglah bersama teman lainnya..</p>
                     </div>
                     <div class="col-md-4">
