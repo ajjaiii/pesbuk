@@ -21,13 +21,11 @@ node ('agen1'){
 			}
 		stage 'Cleaning'
 			echo 'Cleaning image'
-			print "branch : ${env.BRANCH_NAME}"
-			sh 'docker image prune -fa'
+		//	sh 'docker image prune -fa'
 			echo 'image cleaned'
 
 		stage 'Deploy'
 			echo 'Deploying Aplication'
-			print "branch : ${env.BRANCH_NAME}"
 			sh 'sed -i "s/BUILD_NUMBER/$BUILD_NUMBER/g" deployment.yaml'
 			sh 'kubectl apply -f deployment.yaml'
 			echo 'Pesbuk aplication has deployed'
