@@ -14,7 +14,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
+<<<<<<< HEAD
                         <h1>Selamat datang disosial media Cilsy</h1>
+=======
+                        <h1>Selamat datang Sosmed cilsy</h1>
+>>>>>>> f2d8967e86b90514c6638bf0210788f21758dca3
                         <p>Bergabunglah bersama teman lainnya..</p>
                     </div>
                     <div class="col-md-4">
