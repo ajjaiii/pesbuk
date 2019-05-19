@@ -12,10 +12,10 @@ node ('agen1'){
                 credentialsId: 'github',
                 url: 'https://github.com/ajjaiii/pesbuk.git'
 				print "Running on : ${env.NODE_NAME}"
-
 				echo 'Building Image'
 				sh 'docker build . -t pesbuk'
 				sh 'docker tag pesbuk ajjaiii/pesbuk:$BUILD_NUMBER'
+				sh 'docker login'
 				sh 'docker push ajjaiii/pesbuk:$BUILD_NUMBER'
 				
 			}
