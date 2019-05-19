@@ -1,3 +1,4 @@
+#!groovy
 node (agen1) {  
     stage('Build') { 
         echo 'building'
