@@ -29,5 +29,7 @@ node ('agen1'){
 		stage 'Cleaning'
 			echo 'Cleaning images'
 			sh 'docker image prune -fa'
+                        sh 'ssh -i "/root/.ssh/private.key" admin@54.184.205.2'
+                        sh 'docker image prune -fa'
 			echo 'images cleaned'
 }
