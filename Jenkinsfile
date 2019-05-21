@@ -15,9 +15,9 @@ node ('agen1'){
 
 				echo 'Building Image'
 				sh 'docker build . -t pesbuk'
-				sh 'docker tag pesbuk ajjaiii/pesbuk:$BUILD_NUMBER'
+				sh 'docker tag pesbuk ajjaiii/pesbukpro:$BUILD_NUMBER'
 				sh 'docker login'
-				sh 'docker push ajjaiii/pesbuk:$BUILD_NUMBER'
+				sh 'docker push ajjaiii/pesbukpro:$BUILD_NUMBER'
 				echo 'new image has build'
 			}
 		stage 'Deploy'
