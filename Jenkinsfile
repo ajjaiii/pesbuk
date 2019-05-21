@@ -15,13 +15,14 @@ node ('agen1'){
 
 				echo 'Building Image'
 				sh 'docker build . -t pesbuk'
-				sh 'docker tag pesbuk ajjaiii/pesbuk:latest'
+				sh 'docker tag pesbuk ajjaiii/pesbuk:$BUILD_NUMBER'
 				sh 'docker login'
-				sh 'docker push ajjaiii/pesbuk:latest'
+				sh 'docker push ajjaiii/pesbuk:$BUILD_NUMBER'
 				echo 'new image has build'
 			}
 		stage 'Deploy'
 			echo 'Deploying Aplication'
+			sh 'sed -i "s/BUILD_NUMBER/$BUILD_NUMBER/g" deployment.yaml'
 			sh 'kubectl apply -f deployment.yaml'
 			echo 'Pesbuk aplication has deployed'
 
