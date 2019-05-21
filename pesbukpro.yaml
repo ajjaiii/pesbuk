@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pesbukpro
+  labels:
+    app: pesbukpro
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: pesbukpro
+  template:
+    metadata:
+      labels:
+        app: pesbukpro
+    spec:
+      containers:
+      - name: pesbukpro
+        image: ajjaiii/pesbuk:latest
+        ports:
+        - containerPort: 80
