@@ -2,13 +2,13 @@
 node ('agen1'){
 	currentBuild.result = "SUCCESS"
 		stage 'Github checking'
-			git branch: 'staging',
+			git branch: 'production',
             credentialsId: 'github',
             url: 'https://github.com/ajjaiii/pesbuk.git'
 			echo 'file checked out'
 		stage 'Build'
 			node ('agen1'){
-				git branch: 'staging',
+				git branch: 'production',
                 credentialsId: 'github',
                 url: 'https://github.com/ajjaiii/pesbuk.git'
 				print "Running on : ${env.NODE_NAME}"
