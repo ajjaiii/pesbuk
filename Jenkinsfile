@@ -14,9 +14,10 @@ node ('agen1'){
 				print "Running on : ${env.NODE_NAME}"
 
 				echo 'Building Image'
-				sh 'docker build . -t pesbuk'
-				sh 'docker tag pesbuk ajjaiii/pesbuk:$BUILD_NUMBER'
+				sh 'docker build . -t ajjaiii/pesbuk'
+				sh 'docker tag ajjaiii/pesbuk ajjaiii/pesbuk:$BUILD_NUMBER'
 				sh 'docker login'
+                                sh 'docker push ajjaiii/pesbuk:latest'
 				sh 'docker push ajjaiii/pesbuk:$BUILD_NUMBER'
 				echo 'new image has build'
 			}
