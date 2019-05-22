@@ -23,6 +23,7 @@ node ('agen1'){
 			}
                 stage 'Deploy'
 			echo 'Deploying Aplication'
+                        sh 'sed -i "s/BUILD_NUMBER/$BUILD_NUMBER/g" deployment.yaml'
                         sh 'kubectl apply -f deployment.yaml'
                         echo 'Pesbuk aplication has deployed'
 

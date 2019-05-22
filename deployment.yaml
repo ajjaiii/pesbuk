@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: pesbukpro
-        image: ajjaiii/pesbukpro:latest
+        image: ajjaiii/pesbukpro:BUILD_NUMBER
         ports:
         - containerPort: 80
