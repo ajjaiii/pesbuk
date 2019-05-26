@@ -17,7 +17,5 @@ spec:
       containers:
       - name: pesbuk
         image: ajjaiii/pesbuk:BUILD_NUMBER
-        args: [/bin/sh, -c,
-            'i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done']
         ports:
         - containerPort: 80
