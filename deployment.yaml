@@ -19,3 +19,4 @@ spec:
         image: ajjaiii/pesbuk:BUILD_NUMBER
         ports:
         - containerPort: 80
+        - containerPort: 443
