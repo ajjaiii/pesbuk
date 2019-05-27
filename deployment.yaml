@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: pesbuk
-        image: ajjaiii/pesbuk:BUILD_NUMBER
+        image: ajjaiii/pesbuk:8
         ports:
         - containerPort: 80
           #        - containerPort: 443
