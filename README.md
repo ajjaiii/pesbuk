@@ -1,1 +1,1 @@
-<img src="img/pesbuk.png" width="128"/>
+<img src="img/pesbuk.png" width="1024"/>
